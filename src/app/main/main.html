@@ -1,0 +1,26 @@
+<div class="container">
+
+  <div>
+    <acme-navbar creation-date="main.creationDate"></acme-navbar>
+  </div>
+
+  <div class="jumbotron text-center">
+
+    <div  class="btn btn-info"
+          ng-repeat='item in main.list1' data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone'}" ng-model="main.list1" jqyoui-draggable="{index: {{$index}}, placeholder: 'keep'}">{{item.title}}</div>
+
+  </div>
+  {{main.drows}}
+  <div class="jumbotron" data-drop="true" ng-model='main.list2' style="min-height: 400px;position: relative; overflow: hidden;" jqyoui-droppable="{multiple:true}">
+    <div class="btn btn-info" style="position: absolute;" ng-click="main.setDrow($event,item)" ng-repeat="item in main.list2 track by $index" ng-show="item.title" data-drag="true" jqyoui-draggable="{animate:true}" >
+      {{item.title}}
+    </div>
+    <div ng-repeat="item in main.drows" ng-style="main.getStyleForArrow(item)">
+      test
+    </div>
+  </div>
+
+
+
+
+</div>
